@@ -598,7 +598,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 - (UILabel *)stringLabel {
     if (stringLabel == nil) {
         stringLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-		stringLabel.textColor = [UIColor whiteColor];
+		stringLabel.textColor = [UIColor blackColor];
 		stringLabel.backgroundColor = [UIColor clearColor];
 		stringLabel.adjustsFontSizeToFitWidth = YES;
 		#if __IPHONE_OS_VERSION_MIN_REQUIRED < 60000
@@ -608,7 +608,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 		#endif
 		stringLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
 		stringLabel.font = [UIFont boldSystemFontOfSize:16];
-		stringLabel.shadowColor = [UIColor blackColor];
+		stringLabel.shadowColor = [UIColor whiteColor];
 		stringLabel.shadowOffset = CGSizeMake(0, -1);
         stringLabel.numberOfLines = 0;
     }
