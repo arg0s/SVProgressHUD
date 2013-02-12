@@ -27,6 +27,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 @property (nonatomic, readwrite) CGFloat progress;
 @property (nonatomic, strong) CAShapeLayer *backgroundRingLayer;
 @property (nonatomic, strong) CAShapeLayer *ringLayer;
+@property (nonatomic, strong, readwrite) UIColor* hudColor;
 
 @property (nonatomic, readonly) CGFloat visibleKeyboardHeight;
 
@@ -64,6 +65,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 @synthesize hudStatusShadowColor = _uiHudStatusShColor;
 @synthesize hudFont = _uiHudFont;
 #endif
+@synthesize hudColor;
 
 
 + (SVProgressHUD*)sharedView {
@@ -81,44 +83,54 @@ CGFloat SVProgressHUDRingThickness = 6;
 #pragma mark - Show Methods
 
 + (void)show {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor clearColor]];
     [[SVProgressHUD sharedView] showProgress:-1 status:nil maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showWithStatus:(NSString *)status {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:-1 status:status maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:-1 status:nil maskType:maskType];
 }
 
 + (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:-1 status:status maskType:maskType];
 }
 
 + (void)showProgress:(CGFloat)progress {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:progress status:nil maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showProgress:(CGFloat)progress status:(NSString *)status {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:progress status:status maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showProgress:(CGFloat)progress status:(NSString *)status maskType:(SVProgressHUDMaskType)maskType {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showProgress:progress status:status maskType:maskType];
 }
 
 #pragma mark - Show then dismiss methods
 
 + (void)showSuccessWithStatus:(NSString *)string {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [SVProgressHUD showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/success.png"] status:string];
 }
 
 + (void)showErrorWithStatus:(NSString *)string {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [SVProgressHUD showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/error.png"] status:string];
 }
 
 + (void)showImage:(UIImage *)image status:(NSString *)string {
+    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
     [[SVProgressHUD sharedView] showImage:image status:string duration:1.0];
 }
 
@@ -585,7 +597,7 @@ CGFloat SVProgressHUDRingThickness = 6;
         hudView.layer.cornerRadius = 10;
 		hudView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
         // Override - using a clear color
-        hudView.backgroundColor = [UIColor clearColor];
+        hudView.backgroundColor = [self hudColor];
         hudView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin |
                                     UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin);
         
