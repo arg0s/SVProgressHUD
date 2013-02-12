@@ -10,6 +10,8 @@
 #import "SVProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define GREY_COLOR [UIColor colorWithWhite:0 alpha:0.8]
+
 CGFloat SVProgressHUDRingRadius = 14;
 CGFloat SVProgressHUDRingThickness = 6;
 
@@ -88,49 +90,49 @@ CGFloat SVProgressHUDRingThickness = 6;
 }
 
 + (void)showWithStatus:(NSString *)status {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:-1 status:status maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:-1 status:nil maskType:maskType];
 }
 
 + (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:-1 status:status maskType:maskType];
 }
 
 + (void)showProgress:(CGFloat)progress {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:progress status:nil maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showProgress:(CGFloat)progress status:(NSString *)status {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:progress status:status maskType:SVProgressHUDMaskTypeNone];
 }
 
 + (void)showProgress:(CGFloat)progress status:(NSString *)status maskType:(SVProgressHUDMaskType)maskType {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showProgress:progress status:status maskType:maskType];
 }
 
 #pragma mark - Show then dismiss methods
 
 + (void)showSuccessWithStatus:(NSString *)string {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [SVProgressHUD showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/success.png"] status:string];
 }
 
 + (void)showErrorWithStatus:(NSString *)string {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [SVProgressHUD showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/error.png"] status:string];
 }
 
 + (void)showImage:(UIImage *)image status:(NSString *)string {
-    [[SVProgressHUD sharedView] setHudColor:[UIColor blackColor]];
+    [[SVProgressHUD sharedView] setHudColor:GREY_COLOR];
     [[SVProgressHUD sharedView] showImage:image status:string duration:1.0];
 }
 
